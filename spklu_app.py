@@ -134,6 +134,20 @@ with tab1:
                 display_data = display_data.sort_values('predicted_demand_covered', ascending=False).head(top_n)
             else:
                 top_n = 1
+
+        st.sidebar.divider()
+        st.sidebar.markdown(
+                """
+                <div style="text-align: center;">
+                    <small>
+                        © 2025 - Muhammad Ketsar Ali Abi Wahid <br>
+                        Final Project - Data Science Bootcamp <br>
+                        PT Epam Digital Mandiri
+                    </small>
+                </div>
+                """,
+                unsafe_allow_html=True
+         )
         
         m1, m2, m3 = st.columns(3)
         m1.metric('Total Rekomendasi Lokasi :', display_data.shape[0])
@@ -302,4 +316,5 @@ with tab3:
         
         
         
+
     
