@@ -191,7 +191,7 @@ with tab1:
             
             tooltip = {
                 "html": "Kode Pos : <b>{zip_code}</b></br>"
-                        "State: <b>{State}</b></br>"
+                        "Negara Bagian : <b>{State}</b></br>"
                         "Estimasi Permintaan : <b>{predicted_demand_covered}</b></br>"
                         "Lintang (latitude) : <b>{lat_display}</b></br>"
                         "Bujur (longitude) : <b>{lon_display}</b>"
@@ -317,4 +317,5 @@ with tab3:
         
         
         
+
     
