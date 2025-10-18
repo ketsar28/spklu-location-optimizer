@@ -142,7 +142,6 @@ with tab1:
                 <div style="text-align: center;">
                     <small>
                         © 2025 - Muhammad Ketsar Ali Abi Wahid <br>
-                        Final Project - Data Science Bootcamp <br>
                         PT Epam Digital Mandiri
                     </small>
                 </div>
@@ -317,4 +316,5 @@ with tab3:
         
         
         
+
     
