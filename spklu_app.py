@@ -13,7 +13,13 @@ import sklearn
 from sklearn import set_config
 import joblib
 import pydeck as pdk
+import os
 set_config(transform_output='pandas')
+
+# Setup Mapbox API Token (untuk style peta premium)
+# Token diambil dari .streamlit/secrets.toml
+if "MAPBOX_TOKEN" in st.secrets:
+    os.environ["MAPBOX_API_KEY"] = st.secrets["MAPBOX_TOKEN"]
 
 st.set_page_config(
         page_title='Dashboard Optimasi Lokasi SPKLU',
@@ -199,7 +205,7 @@ with tab1:
             peta_rekomendasi = pdk.Deck(
                 layers=[coverage_layer, station_layer], 
                 initial_view_state=view_state, 
-                map_style='mapbox://styles/mapbox/dark-v10', 
+                map_style='mapbox://styles/mapbox/dark-v11',  # Butuh MAPBOX_TOKEN 
                 tooltip=tooltip
             )
             
