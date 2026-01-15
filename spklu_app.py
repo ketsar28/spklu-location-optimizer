@@ -46,10 +46,11 @@ def load_data_from_bq():
                              project=credentials.project_id)
 
     query = """
-    select 
-        station_name,latitude,longitude,city, state, fuel_type, status
-    from `personal-480906.raw_spklu_data.clean_fuel_stations`
-    where status = 'E'
+    SELECT 
+        station_name, latitude, longitude, city, state, fuel_type, status
+    FROM `personal-480906.raw_spklu_data.clean_fuel_stations`
+    WHERE status = 'E'
+    LIMIT 10000
     """
 
     df = client.query(query).to_dataframe()
