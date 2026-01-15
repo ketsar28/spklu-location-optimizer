@@ -19,6 +19,13 @@ from google.oauth2 import service_account
 import json
 set_config(transform_output='pandas')
 
+
+st.set_page_config(
+    page_title='Dashboard Optimasi Lokasi SPKLU',
+    page_icon='⚡',
+    layout='wide',
+)
+
 # Setup Mapbox API Token (untuk style peta premium)
 # Token diambil dari .streamlit/secrets.toml
 if "MAPBOX_TOKEN" in st.secrets:
@@ -27,12 +34,6 @@ if "MAPBOX_TOKEN" in st.secrets:
 else:
     # Fallback ke style Open-Source (CartoDB) kalau token tidak ada
     map_style_config = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
-
-st.set_page_config(
-    page_title='Dashboard Optimasi Lokasi SPKLU',
-    page_icon='⚡',
-    layout='wide',
-)
 
 
 @st.cache_data(ttl=660)
