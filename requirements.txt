@@ -11,3 +11,5 @@ lightgbm==4.6.0
 feature_engine==1.9.3
 shap==0.47.2
 geopy==2.4.1
+google-cloud-bigquery
+db-dtypes

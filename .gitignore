@@ -19,6 +19,7 @@ env/
 # 🔐 SECRETS - JANGAN PERNAH COMMIT KE GITHUB!
 # ============================================
 .streamlit/secrets.toml
+google-bigquery/
 
 # Environment variables
 .env
