@@ -23,6 +23,10 @@ set_config(transform_output='pandas')
 # Token diambil dari .streamlit/secrets.toml
 if "MAPBOX_TOKEN" in st.secrets:
     os.environ["MAPBOX_API_KEY"] = st.secrets["MAPBOX_TOKEN"]
+    map_style_config = 'mapbox://styles/mapbox/dark-v11'
+else:
+    # Fallback ke style Open-Source (CartoDB) kalau token tidak ada
+    map_style_config = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
 
 st.set_page_config(
     page_title='Dashboard Optimasi Lokasi SPKLU',
@@ -251,7 +255,7 @@ with tab1:
             peta_rekomendasi = pdk.Deck(
                 layers=[coverage_layer, station_layer],
                 initial_view_state=view_state,
-                map_style='mapbox://styles/mapbox/dark-v11',  # Butuh MAPBOX_TOKEN
+                map_style=map_style_config,  # Pakai variabel safe config
                 tooltip=tooltip
             )
 
@@ -411,7 +415,7 @@ with tab4:
         layers=[map_layer],
         initial_view_state=view_state,
         tooltip=tooltip_live,
-        map_style='mapbox://styles/mapbox/dark-v11'
+        map_style=map_style_config
     ))
 
     st.divider()
@@ -474,7 +478,7 @@ with tab4:
     st.pydeck_chart(pdk.Deck(
         layers=[cluster_layer],
         initial_view_state=view_state,
-        map_style='mapbox://styles/mapbox/dark-v11',
+        map_style=map_style_config,
         tooltip=tooltip_cluster
     ))
     st.info(
